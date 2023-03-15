@@ -170,7 +170,8 @@ export default {
     contentClickEvent: {
       type: Boolean,
       default: true,
-    }
+    },
+    projectId: String
   },
   computed: {
     edit() {
@@ -217,7 +218,7 @@ export default {
       return type;
     },
     getMemberOptions() {
-      getProjectMemberOption().then((r) => {
+      getProjectMemberById(this.projectId).then((r) => {
         let tempMemberOptions = r.data || [];
         let tempArr = [];
         tempMemberOptions.forEach((e) => {
