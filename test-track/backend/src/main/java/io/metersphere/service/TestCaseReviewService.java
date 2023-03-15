@@ -520,12 +520,7 @@ public class TestCaseReviewService {
             SqlSessionUtils.closeSqlSession(sqlSession, sqlSessionFactory);
         }
 
-        TestCaseReview testCaseReview = testCaseReviewMapper.selectByPrimaryKey(request.getReviewId());
-        if (StringUtils.equals(testCaseReview.getStatus(), TestCaseReviewStatus.Prepare.name())
-                || StringUtils.equals(testCaseReview.getStatus(), TestCaseReviewStatus.Completed.name())) {
-            testCaseReview.setStatus(TestCaseReviewStatus.Underway.name());
-            testCaseReviewMapper.updateByPrimaryKey(testCaseReview);
-        }
+
     }
 
     public List<String> getTestCaseReviewerIds(String reviewId) {
